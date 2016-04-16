@@ -1,0 +1,29 @@
+<div class="col-sm-9">
+  <div class="heading_container">
+    <div class="inner">
+
+      <h2 class="fa fa-dekstop">Project Dashboard</h2> &nbsp
+      <%= link_to '<i class="material-icons">add</i>'.html_safe, new_project_path, class: 'waves-effect waves-light btn-floating btn tooltipped', data: {tooltip: 'New Project', position: 'right', delay: 50} %>
+    </div>
+  </div>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @projects.each do |project| %>
+      <tr>
+        <td><%= link_to project.name, project, class: 'tooltipped', data: {tooltip: project.created_at.strftime("Created on %m/%d/%Y"), position: 'right', delay: 50} %></td>
+        <td><%= project.description %></td>
+        <td><%= link_to '<i class="small material-icons">delete</i>'.html_safe, project, method: :delete, data: { confirm: 'Are you sure?' }, class: 'tooltipped', data: {tooltip: 'Delete project', position: 'left', delay: 50} %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

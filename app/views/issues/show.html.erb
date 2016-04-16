@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+
+<p>
+  <strong>Name:</strong>
+  <%= @issue.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @issue.description %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @issue.user %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @issue.issue_status.try(:name) %>
+</p>
+
+<%= link_to '<i class="fa fa-chevron-left fa-fw"></i> Back'.html_safe, project_issues_path, class: 'waves-effect waves-light btn' %>  
+<%= link_to '<i class="fa fa-pencil fa-fw"></i> Edit'.html_safe, edit_project_issue_path(@issue.project,@issue), class: 'waves-effect waves-light btn' %>
+<%= link_to '<i class="fa fa-trash fa-fw"></i> Delete'.html_safe, project_issue_path, method: :delete, data: { confirm: 'Are you sure?' },class: 'waves-effect waves-light btn red' %>

@@ -1,0 +1,47 @@
+<nav class="teal" role="navigation">
+  <div class="nav-wrapper container">
+    <a href="/" class="brand-logo">Fixdone</a>
+    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+    <ul class="right hide-on-med-and-down">
+      <li><%= link_to projects_path do %>
+            <span>All Projects</span>
+          <% end %>
+      </li>
+      <% if @project && !current_page?(new_project_path) && !current_page?(projects_path) %>
+            <li>
+                <%= link_to [@project] do %>
+                    <span>Overview</span>
+                <% end %>
+            </li>
+            <li>
+                <%= link_to [@project, :issues] do %>
+                    <span>Issues</span>
+                <% end %>
+            </li> 
+        <% end %>
+        <li><%= link_to "<i class='large material-icons'>input</i>
+            ".html_safe, destroy_user_session_path, method: :delete, class: 'tooltipped', data: {tooltip: 'Logout', position: 'bottom', delay: 50} %></li>
+    </ul>
+    <ul class="side-nav" id="mobile-demo">
+      <li></li>
+      <li><%= link_to projects_path do %>
+            <span>All Projects</span>
+          <% end %>
+      </li>
+      <% if @project && !current_page?(new_project_path) %>
+            <li>
+                <%= link_to [@project] do %>
+                    <span>Overview</span>
+                <% end %>
+            </li>
+            <li>
+                <%= link_to [@project, :issues] do %>
+                    <span>Issues</span>
+                <% end %>
+            </li>
+          
+        <% end %>
+      <li><%= link_to "Logout", destroy_user_session_path, method: :delete%></li>
+    </ul>
+  </div>
+</nav>

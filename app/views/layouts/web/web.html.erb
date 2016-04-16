@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fixdone</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <%= stylesheet_link_tag    'web', media: 'all', 'data-turbolinks-track' => true %>
+  
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<!-- App layouts -->
+<%= render 'layouts/web/header' %>
+	<div class="container">
+	    <%= yield %>
+	</div>
+<%= render 'layouts/web/footer' %>
+<%= javascript_include_tag 'web', 'data-turbolinks-track' => true %>
+</body>
+</html>
